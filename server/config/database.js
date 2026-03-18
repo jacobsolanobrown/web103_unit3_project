@@ -1,7 +1,9 @@
 import dotenv from 'dotenv';
+dotenv.config({ path: '../../.env' });
+console.log('PASSWORD:', process.env.PGPASSWORD)
+
 import pg from 'pg';
 
-dotenv.config({ path: '../../.env' });
 
 const config = {
   user: process.env.PGUSER,
@@ -9,9 +11,10 @@ const config = {
   host: process.env.PGHOST,
   port: process.env.PGPORT,
   database: process.env.PGDATABASE,
-  ssl: {
-      rejectUnauthorized: false
-  }
+  ssl:
+    process.env.NODE_ENV === 'production' ?
+      { rejectUnauthorized: false }
+    : false,
 }
 
 export const pool = new pg.Pool(config)

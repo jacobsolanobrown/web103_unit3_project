@@ -1,9 +1,11 @@
 // this file will create the concerts table in the database
 import dotenv from 'dotenv';
+dotenv.config({ path: '../.env' });
+console.log('DB URL:', process.env.DATABASE_URL)
 import { pool } from './database.js';
 import concertData from '../data/concert.js';
 
-dotenv.config({ path: '../../.env' });
+
 
 const createConcertTable = async () => {
   // the sql query to create the concerts table - drops the table if it already exists and creates a new one
