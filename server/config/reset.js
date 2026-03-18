@@ -1,7 +1,8 @@
 // this file will create the concerts table in the database
-import dotenv from 'dotenv';
-dotenv.config({ path: '../.env' });
-console.log('DB URL:', process.env.DATABASE_URL)
+// import dotenv from 'dotenv';
+// dotenv.config({ path: '../.env' });
+import './dotenv.js'
+console.log('PASSWORD', process.env.PGPASSWORD)
 import { pool } from './database.js';
 import concertData from '../data/concert.js';
 
@@ -73,7 +74,7 @@ const seedConcertTable = async () => {
         console.error('⚠️ error inserting concert', err);
         return;
       }
-      console.log(`✅ ${concert.title} added successfully`);
+      console.log(`✅ ${concert.artist_name} added successfully`);
     });
   });           
 };

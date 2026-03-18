@@ -1,8 +1,9 @@
 import dotenv from 'dotenv';
+import './config/dotenv.js'
 import express from 'express';
 import path from 'path';
 
-dotenv.config({ path: '../.env' });
+// dotenv.config({ path: '../.env' });
 
 // import the router from your routes file
 import concertRouter from './routes/concert.js';
