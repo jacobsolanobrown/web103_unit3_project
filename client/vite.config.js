@@ -14,9 +14,13 @@ export default defineConfig({
       'picocss': path.resolve(__dirname, '../node_modules/@picocss/pico/css')
     }
   },
+  // this is the proxy configuration that allows the client to make requests to the server
   server: {
     proxy: {
       '/api': {
+        target: 'http://localhost:3000'
+      },
+      '/concerts': {
         target: 'http://localhost:3000'
       }
     }
